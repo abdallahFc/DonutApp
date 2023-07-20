@@ -12,7 +12,7 @@ import com.example.donutapp.R
 import com.example.donutapp.ui.theme.Pink
 
 @Composable
-fun FavoriteButtonAnimation(
+fun FavoriteButton(
     modifier: Modifier = Modifier,
     roundedSize: Int = 8,
     iconState: Boolean,
@@ -38,5 +38,5 @@ fun FavoriteButtonAnimation(
 @Preview(showBackground = true)
 @Composable
 fun FavoriteButtonAnimationPreview() {
-    FavoriteButtonAnimation(iconState = true, onClickIconFavorite = {})
+    FavoriteButton(iconState = true, onClickIconFavorite = {})
 }

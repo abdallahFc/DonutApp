@@ -31,7 +31,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.donutapp.R
 import com.example.donutapp.composable.BottomSheet
-import com.example.donutapp.composable.FavoriteButtonAnimation
+import com.example.donutapp.composable.FavoriteButton
 import com.example.donutapp.composable.PrimaryButton
 import com.example.donutapp.composable.RoundedButton
 import com.example.donutapp.ui.theme.Pink
@@ -72,10 +72,10 @@ fun DetailsContent(
         }
         Image(
             modifier = Modifier
-                .scale(1.2f)
+                .scale(1.4f)
                 .padding(top = 80.dp)
                 .align(Alignment.TopCenter),
-            painter = painterResource(id = R.drawable.image_7),
+            painter = painterResource(id = state.image),
             contentDescription = ""
         )
 
@@ -90,7 +90,7 @@ fun DetailsContent(
             }
 
 
-            FavoriteButtonAnimation(
+            FavoriteButton(
                 modifier = Modifier.align(Alignment.TopEnd).padding(end = 8.dp).offset(y = (-30).dp),
                 iconState = state.favorite,
                 roundedSize = 12,

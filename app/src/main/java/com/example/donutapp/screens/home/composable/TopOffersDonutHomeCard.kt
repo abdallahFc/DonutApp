@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.donutapp.composable.FavoriteButtonAnimation
+import com.example.donutapp.composable.FavoriteButton
 import com.example.donutapp.screens.home.TopDonutUiState
 import com.example.donutapp.ui.theme.Pink30
 import com.example.donutapp.ui.theme.SecondaryText
@@ -51,7 +51,7 @@ fun TopOffersDonutHomeCard(
                 .clickable { onClickCard() }
         ) {
 
-            FavoriteButtonAnimation(iconState = state.favoriteIcon , roundedSize = 50, onClickIconFavorite = onClickIconFavorite)
+            FavoriteButton(iconState = state.favoriteIcon , roundedSize = 50, onClickIconFavorite = onClickIconFavorite)
 
             Box(
                 modifier = Modifier
