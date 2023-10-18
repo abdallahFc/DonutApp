@@ -47,7 +47,7 @@ fun DonutsHomeCard(
                         bottomStart = 10.dp,
                         bottomEnd = 10.dp
                     ),
-                    shadowElevation = 10f,
+                    shadowElevation = 25f,
                     spotShadowColor = Color.Gray,
                 ).clip(RoundedCornerShape(
                     topStart = 20.dp,
@@ -56,7 +56,6 @@ fun DonutsHomeCard(
                     bottomEnd = 10.dp
                 ))
                 .background(backgroundTint)
-                .shadow(elevation = 1.dp, spotColor = Shadow)
                 .clickable { }
         ) {
             Box(

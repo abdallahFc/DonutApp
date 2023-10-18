@@ -6,7 +6,9 @@ import java.io.Serializable
 
 data class HomeUiState(
     val topOffers: List<TopDonutUiState> = donutUiStateList,
-    val donuts: List<DonutsUiState> = donutsUiStates
+    val donuts: List<DonutsUiState> = donutsUiStates,
+    val isFavoriteSelected: Boolean = false,
+    val isCartSelected: Boolean = false,
 )
 
 data class TopDonutUiState(

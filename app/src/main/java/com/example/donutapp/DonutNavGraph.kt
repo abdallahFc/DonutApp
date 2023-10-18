@@ -2,18 +2,22 @@ package com.example.donutapp
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.example.donutapp.mvp.SharedViewModel
 import com.example.donutapp.screens.details.detailsRoute
 import com.example.donutapp.screens.home.homeRoute
 import com.example.donutapp.screens.onboarding.boardingRoute
 
 @Composable
-fun NavGraph(navHostController: NavHostController, modifier: Modifier) {
+fun NavGraph(
+    navHostController: NavHostController, modifier: Modifier,
+) {
     NavHost(
         modifier = modifier,
         navController = navHostController,
-        startDestination = AppDestination.BoardingScreen.route
+        startDestination = AppDestination.BoardingScreen.route,
     ) {
 
         homeRoute(navHostController)

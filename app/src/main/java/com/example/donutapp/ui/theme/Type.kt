@@ -9,9 +9,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.donutapp.R
 
-
-val inter = FontFamily(Font(R.font.inter))
-
 val typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = inter,
