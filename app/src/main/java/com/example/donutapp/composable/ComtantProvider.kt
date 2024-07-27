@@ -7,19 +7,46 @@ import android.provider.ContactsContract
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun ConstantProvider() {
+    var permissionState by remember { mutableStateOf(false) }
     val context = LocalContext.current
-    val contentResolver: ContentResolver = context.contentResolver
-    val contactsUri = ContactsContract.Contacts.CONTENT_URI
-    LaunchedEffect(key1 =true){
-        logContactDetails(contactsUri, contentResolver)
+    val requestPermissionLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                permissionState = true
+            } else {
+                // Handle permission denied case
+            }
+        }
+
+    if (!permissionState) {
+        Column {
+            Text("This app requires contact permissions.")
+            Button(onClick = {
+                requestPermissionLauncher.launch(android.Manifest.permission.READ_CONTACTS)
+            }) {
+                Text("Request Contacts Permission")
+            }
+        }
+    } else {
+        val contentResolver = context.contentResolver
+        val contactsUri = ContactsContract.Contacts.CONTENT_URI
+        LaunchedEffect(key1 = true) {
+            logContactDetails(contactsUri, contentResolver)
+        }
     }
 }
 
